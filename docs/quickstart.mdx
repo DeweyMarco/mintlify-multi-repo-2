@@ -1,0 +1,47 @@
+---
+title: "Quickstart"
+description: "Start the API and find your first shortest path."
+---
+
+## Prerequisites
+
+Install Python 3.11 or newer and [uv](https://docs.astral.sh/uv/).
+
+<Steps>
+  <Step title="Install the project">
+
+```bash
+uv sync --extra dev
+```
+  </Step>
+  <Step title="Start the API">
+
+```bash
+uv run uvicorn dijkstra_service.api:app --reload
+```
+
+    The server listens on `http://localhost:8000`.
+  </Step>
+  <Step title="Find a path">
+
+```bash
+curl -X POST http://localhost:8000/shortest-path \
+  -H 'Content-Type: application/json' \
+  -d '{"edges":[{"source":"A","target":"B","weight":4},{"source":"A","target":"C","weight":1},{"source":"C","target":"B","weight":2}],"start":"A","end":"B"}'
+```
+
+```json
+{"reachable":true,"distance":3.0,"path":["A","C","B"]}
+```
+  </Step>
+</Steps>
+
+<Warning>Dijkstra's algorithm doesn't support negative edge weights. The API rejects them during request validation.</Warning>
+
+## Run the documentation
+
+```bash
+cd docs
+npm install
+npm run dev
+```

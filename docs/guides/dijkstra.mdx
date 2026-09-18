@@ -1,0 +1,31 @@
+---
+title: "How Dijkstra's algorithm works"
+description: "See how the service discovers a minimum-cost route."
+---
+
+Dijkstra's algorithm expands the cheapest unsettled node first. A min-priority queue makes that choice efficient.
+
+<Steps>
+  <Step title="Initialize">Set the start distance to zero and every unknown distance to infinity.</Step>
+  <Step title="Visit the cheapest node">Remove the node with the smallest tentative distance from the priority queue.</Step>
+  <Step title="Relax outgoing edges">Update a neighbor when reaching it through the current node costs less.</Step>
+  <Step title="Reconstruct the path">Follow predecessor links backward from the destination.</Step>
+</Steps>
+
+## Complexity
+
+With the binary heap used here, the runtime is O((V + E) log V), where V is the number of vertices and E is the number of edges. Distance and predecessor maps require O(V) space.
+
+## Use it directly
+
+```python
+from dijkstra_service import shortest_path
+
+graph = {
+    "A": [("B", 4), ("C", 1)],
+    "C": [("B", 2)],
+    "B": [],
+}
+
+assert shortest_path(graph, "A", "B") == (3.0, ["A", "C", "B"])
+```

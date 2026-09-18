@@ -1,0 +1,53 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "luma",
+  "name": "Shortest Path API",
+  "description": "Find minimum-cost routes through weighted graphs.",
+  "colors": {
+    "primary": "#7C3AED",
+    "light": "#A78BFA",
+    "dark": "#6D28D9"
+  },
+  "appearance": {
+    "default": "system",
+    "strict": false
+  },
+  "icons": {
+    "library": "lucide"
+  },
+  "logo": {
+    "light": "/assets/logo-light.svg",
+    "dark": "/assets/logo-dark.svg",
+    "href": "/"
+  },
+  "favicon": "/assets/favicon.svg",
+  "api": {
+    "openapi": "openapi.json"
+  },
+  "navbar": {
+    "primary": {
+      "type": "button",
+      "label": "Quickstart",
+      "href": "/quickstart"
+    }
+  },
+  "navigation": {
+    "groups": [
+      {
+        "group": "Get started",
+        "icon": "rocket",
+        "pages": ["quickstart"]
+      },
+      {
+        "group": "Learn",
+        "icon": "map",
+        "pages": ["guides/dijkstra", "guides/modeling-graphs", "guides/development"]
+      },
+      {
+        "group": "API reference",
+        "icon": "braces",
+        "pages": ["api-reference/overview", "api-reference/shortest-path", "api-reference/health"]
+      }
+    ]
+  }
+}

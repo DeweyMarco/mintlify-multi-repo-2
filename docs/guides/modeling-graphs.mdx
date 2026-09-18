@@ -1,0 +1,31 @@
+---
+title: "Model graphs"
+description: "Represent nodes, weighted edges, direction, and unreachable paths."
+---
+
+Each edge has a `source`, `target`, and non-negative `weight`. Node labels are arbitrary non-empty strings.
+
+```json
+{"source":"Seattle","target":"Portland","weight":174}
+```
+
+## Undirected graphs
+
+Requests are undirected by default. The service can travel across every edge in either direction.
+
+## Directed graphs
+
+Set `directed` to `true` when edges should only be traversed from `source` to `target`.
+
+```json
+{
+  "edges": [{"source":"A","target":"B","weight":2}],
+  "start": "B",
+  "end": "A",
+  "directed": true
+}
+```
+
+This request returns `reachable: false` because no edge leaves `B`.
+
+<Note>Weights can represent distance, latency, cost, or any other additive quantity, but they must not be negative.</Note>

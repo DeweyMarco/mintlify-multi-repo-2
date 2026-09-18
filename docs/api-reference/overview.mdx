@@ -1,0 +1,17 @@
+---
+title: "API overview"
+description: "Request conventions and local endpoints for the Shortest Path API."
+---
+
+The local base URL is:
+
+```text
+http://localhost:8000
+```
+
+Requests and responses use JSON. FastAPI returns `422 Unprocessable Entity` for negative weights, empty node names, or malformed request bodies.
+
+<CardGroup cols={2}>
+  <Card title="Find a shortest path" icon="route" href="/api-reference/shortest-path">Calculate the least-cost route between two nodes.</Card>
+  <Card title="Health check" icon="heart-pulse" href="/api-reference/health">Confirm that the service process is ready.</Card>
+</CardGroup>

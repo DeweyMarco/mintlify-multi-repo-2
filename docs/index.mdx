@@ -1,0 +1,41 @@
+---
+title: "Shortest Path API"
+description: "Dijkstra's algorithm behind a focused graph-routing interface."
+mode: "custom"
+---
+
+<div className="mx-auto max-w-5xl px-6 py-16">
+  <div className="max-w-3xl">
+    <p className="text-sm font-semibold text-violet-600 dark:text-violet-400">FROM NODES TO THE BEST ROUTE</p>
+    <h1 className="mt-4 text-5xl font-bold tracking-tight">Find the least-cost path through your graph</h1>
+    <p className="mt-6 text-xl text-gray-600 dark:text-gray-300">Submit weighted edges and get the shortest reachable route, total distance, and an explicit answer when no route exists.</p>
+    <div className="mt-8 flex gap-3">
+      <a className="sp-primary-button" href="/quickstart">Find your first path</a>
+      <a className="sp-secondary-button" href="/api-reference/overview">Explore the API</a>
+    </div>
+  </div>
+
+  <div className="mt-16">
+    <CardGroup cols={3}>
+      <Card title="Start locally" icon="terminal" href="/quickstart">Install the service and calculate a route in a few commands.</Card>
+      <Card title="Learn Dijkstra's algorithm" icon="route" href="/guides/dijkstra">Understand the priority queue and relaxation steps.</Card>
+      <Card title="Model a graph" icon="waypoints" href="/guides/modeling-graphs">Represent directed and undirected weighted edges.</Card>
+    </CardGroup>
+  </div>
+
+  <div className="mt-16">
+    <h2 className="text-2xl font-semibold">A route request</h2>
+
+```json
+{
+  "edges": [
+    {"source": "A", "target": "B", "weight": 4},
+    {"source": "A", "target": "C", "weight": 1},
+    {"source": "C", "target": "B", "weight": 2}
+  ],
+  "start": "A",
+  "end": "B"
+}
+```
+  </div>
+</div>
